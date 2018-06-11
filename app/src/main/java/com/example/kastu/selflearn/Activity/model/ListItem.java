@@ -9,6 +9,9 @@ public class ListItem {
     private int hate;
     private int love;
 
+    public ListItem(){
+
+    }
 
     public ListItem(String head, String desc, int like, int hate, int love) {
         this.head = head;
@@ -34,7 +37,28 @@ public class ListItem {
         return hate;
     }
 
+    public void setHead(String head) {
+        this.head = head;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public void setHate(int hate) {
+        this.hate = hate;
+    }
+
+    public void setLove(int love) {
+        this.love = love;
+    }
+
     public int getLove() {
+
         return love;
     }
 }

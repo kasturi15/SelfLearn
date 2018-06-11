@@ -14,11 +14,11 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
-   private List<ListItem> listItems;
+   private List<ListItem> list;
    private Context context;
 
-    public MyAdapter(List<ListItem> listItems, Context context) {
-        this.listItems = listItems;
+    public MyAdapter(List<ListItem> list, Context context) {
+        this.list = list;
         this.context = context;
     }
 
@@ -31,18 +31,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(MyAdapter.ViewHolder holder, int position) {
 
-        ListItem listItem =listItems.get(position);
+        ListItem listItem = list.get(position);
 
         holder.textViewHead.setText(listItem.getHead());
         holder.textViewDesc.setText(listItem.getDesc());
-        holder.likes.setText(listItem.getLike());
-        holder.hates.setText(listItem.getHate());
-        holder.loved.setText(listItem.getLove());
+        holder.likes.setText(String.valueOf(listItem.getLike()));
+        holder.hates.setText(String.valueOf(listItem.getHate()));
+        holder.loved.setText(String.valueOf(listItem.getLove()));
     }
 
     @Override
     public int getItemCount() {
-        return listItems.size();
+        return list.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -56,11 +56,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public ViewHolder(View itemView) {
             super(itemView);
 
-            textViewHead= (TextView) itemView.findViewById(R.id.textViewHead);
-            textViewDesc=(TextView) itemView.findViewById(R.id.textViewDesc);
-            likes = (TextView) itemView.findViewById(R.id.likes);
-            hates=(TextView) itemView.findViewById(R.id.hates);
-            loved=(TextView) itemView.findViewById(R.id.loved);
+            textViewHead= itemView.findViewById(R.id.textViewHead);
+            textViewDesc= itemView.findViewById(R.id.textViewDesc);
+            likes = itemView.findViewById(R.id.likes);
+            hates= itemView.findViewById(R.id.hates);
+            loved= itemView.findViewById(R.id.loved);
         }
     }
 }
