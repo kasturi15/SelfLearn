@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Self Learn</string>
+    <string name="_20_loves">20 Loves</string>
+    <string name="_1_hates">1 Hates</string>
+    <string name="_2_likes">2 Likes</string>
+    <string name="_2">2</string>
+    <string name="_1">1</string>
+    <string name="heading">Heading</string>
+    <string name="description">Description</string>
+    <string name="image">image</string>
+    <string name="_20">20</string>
+</resources>
