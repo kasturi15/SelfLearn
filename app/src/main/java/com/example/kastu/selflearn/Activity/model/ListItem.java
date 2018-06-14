@@ -5,6 +5,9 @@ public class ListItem {
     private String head;
     private String desc;
 
+    private String imageUrl;
+    private String[] imageUrls;
+
     private int like;
     private int hate;
     private int love;
@@ -13,12 +16,31 @@ public class ListItem {
 
     }
 
-    public ListItem(String head, String desc, int like, int hate, int love) {
+    public ListItem(String head, String desc, String imageUrl, String[] imageUrls, int like, int hate, int love) {
+        this.head = head;
+        this.desc = desc;
+        this.imageUrl = imageUrl;
+        this.imageUrls = imageUrls;
+        this.like = like;
+        this.hate = hate;
+        this.love = love;
+    }
+
+    public String[] getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(String[] imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public ListItem(String head, String desc, String imageUrl, int like, int hate, int love) {
         this.head = head;
         this.desc = desc;
         this.like = like;
         this.hate = hate;
         this.love = love;
+        this.imageUrl = imageUrl;
     }
 
     public String getHead() {
@@ -60,5 +82,13 @@ public class ListItem {
     public int getLove() {
 
         return love;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

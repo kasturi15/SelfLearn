@@ -3,17 +3,16 @@ package com.example.kastu.selflearn.Activity.activity;
 import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kastu.selflearn.Activity.adapter.MyAdapter;
 import com.example.kastu.selflearn.Activity.model.ListItem;
 import com.example.kastu.selflearn.R;
 
@@ -29,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private String url = "https://raw.githubusercontent.com/kasturi15/Hello_world/master/data.json";
 
     private RecyclerView mList;
-    private LinearLayoutManager linearLayoutManager;
-    DividerItemDecoration dividerItemDecoration;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItems;
 
@@ -43,13 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         listItems = new ArrayList<>();
         adapter = new MyAdapter(listItems,getApplicationContext());
-        linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        dividerItemDecoration= new DividerItemDecoration(mList.getContext(),linearLayoutManager.getOrientation());
 
         mList.setHasFixedSize(true);
         mList.setLayoutManager(new LinearLayoutManager(this));
-        mList.addItemDecoration(dividerItemDecoration);
+
         mList.setAdapter(adapter);
 
         getData();
@@ -74,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                         list.setHead(jsonObject.getString("head"));
                         list.setDesc(jsonObject.getString("desc"));
+                        list.setImageUrl(jsonObject.getString("imageurl"));
                         list.setLike(jsonObject.getInt("like"));
                         list.setHate(jsonObject.getInt("hate"));
                         list.setLove(jsonObject.getInt("love"));
