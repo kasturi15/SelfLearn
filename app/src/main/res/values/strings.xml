@@ -9,4 +9,13 @@
     <string name="description">Description</string>
     <string name="image">image</string>
     <string name="_20">20</string>
+    <string name="tom_riddle">Tom Riddle</string>
+    <string name="photos">Photos</string>
+    <string name="_125">125</string>
+    <string name="posts">Posts</string>
+    <string name="Posts">Posts</string>
+    <string name="tomriddle_gmail_com">tomriddle@gmail.com</string>
+    <string name="_9449535715">9449535715</string>
+    <string name="leave_a_comment">Leave a comment</string>
+    <string name="add_to_group">Add to Group</string>
 </resources>
