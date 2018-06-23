@@ -7,10 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.kastu.selflearn.Activity.model.ListItem;
+import com.example.kastu.selflearn.HorizontalScroll;
 import com.example.kastu.selflearn.R;
 import com.squareup.picasso.Picasso;
 
@@ -39,10 +42,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         ListItem listItem = list.get(position);
 
         String[] imageUrls = new String[]{
-
-                "https://scstylecaster.files.wordpress.com/2015/04/small-shoes_jumbo.jpg",
-                "https://4.imimg.com/data4/HN/RU/ANDROID-46039137/product-500x500.jpeg",
-                "http://www.kidsomania.com/photos/12-halloween-animal-costumes-for-kids-3.jpg"
+                "https://picsum.photos/301/300/",
+                "https://lorempixel.com/302/300/",
+                "https://lorempixel.com/303/300/",
+                "https://picsum.photos/304/300/",
+                "https://lorempixel.com/305/300/",
+                "https://lorempixel.com/306/300/"
         };
 
         holder.textViewHead.setText(listItem.getHead());
@@ -51,9 +56,27 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         holder.hates.setText(String.valueOf(listItem.getHate()));
         holder.loved.setText(String.valueOf(listItem.getLove()));
 
-        ViewPager viewPager = holder.viewPager;
+        HorizontalScrollView horizontalScroll = holder.horizontalScroll;
+        LinearLayout scroll = holder.scroll;
+
+        /*ViewPager viewPager = holder.viewPager;
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(context,imageUrls);
-        viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setAdapter(viewPagerAdapter);*/
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        for (int i = 0; i < imageUrls.length; i++)
+        {
+            View view = inflater.inflate(R.layout.item,scroll,false);
+
+            ImageView imageView2 = view.findViewById(R.id.imageView2);
+            Picasso.get()
+                    .load(imageUrls[i])
+                    .fit()
+                    .into(imageView2);
+
+            scroll.addView(view);
+        }
     }
 
     @Override
@@ -67,16 +90,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public TextView textViewDesc;
         public ImageView imageurl;
         public ViewPager viewPager;
+        public HorizontalScrollView horizontalScroll;
         public TextView likes;
         public TextView hates;
         public TextView loved;
+        public LinearLayout scroll;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             textViewHead= itemView.findViewById(R.id.textViewHead);
             textViewDesc= itemView.findViewById(R.id.textViewDesc);
-            viewPager = itemView.findViewById(R.id.viewPager);
+           // viewPager = itemView.findViewById(R.id.viewPager);
+            horizontalScroll= itemView.findViewById(R.id.horizontalScroll);
+            scroll = itemView.findViewById(R.id.scroll);
             imageurl = itemView.findViewById(R.id.image);
             likes = itemView.findViewById(R.id.likes);
             hates= itemView.findViewById(R.id.hates);
